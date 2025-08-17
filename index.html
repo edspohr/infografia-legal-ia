@@ -222,7 +222,7 @@
                 // --- PASO 2: SIMULACIÓN DE RESPUESTAS Y GENERACIÓN DE INFORME FINAL ---
                 const finalPrompt = `Actúa como un asistente legal experto para un estudio de abogados en Chile. Has recibido una comunicación inicial de un cliente y has enviado un email con preguntas aclaratorias. Ahora, SIMULA respuestas realistas y concisas del cliente a esas preguntas. Basado en la conversación COMPLETA (comunicación inicial + respuestas simuladas), genera un informe ejecutivo final para el abogado. La respuesta debe ser un objeto JSON con las siguientes claves:
                 - "respuestas_simuladas": Un string que contenga las respuestas simuladas del cliente, formateadas como un texto de email de respuesta.
-                - "informe_final": Un párrafo detallado y bien estructurado dirigido al abogado. Debe incluir un resumen completo del caso, la información clave obtenida, una evaluación de la urgencia y una recomendación clara de los próximos pasos legales a seguir según la legislación chilena.
+                - "informe_final": Un informe ejecutivo para el abogado. Formatea la respuesta para que sea fácil de leer, usando saltos de línea para separar las secciones. Incluye los siguientes títulos en mayúsculas seguidos de dos puntos: RESUMEN DEL CASO, INFORMACIÓN CLAVE OBTENIDA, EVALUACIÓN DE URGENCIA y PRÓXIMOS PASOS RECOMENDADOS.
                 
                 CONVERSACIÓN HASTA AHORA:
                 Cliente (Inicial): "${userInput}"
@@ -314,7 +314,7 @@
                     </div>
                     <div class="mt-6 bg-turquoise/10 p-4 rounded-lg border-l-4 border-turquoise">
                         <p class="font-semibold text-gray-800">Informe Final para Abogado:</p>
-                        <p class="text-gray-700 mt-2">${data.informe_final}</p>
+                        <p class="text-gray-700 mt-2 whitespace-pre-wrap">${data.informe_final}</p>
                     </div>
                 </div>
             `;
